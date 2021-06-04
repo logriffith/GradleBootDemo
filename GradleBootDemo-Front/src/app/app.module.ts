@@ -3,7 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GetInfoComponent } from './challenges/get-challenge/get-info/get-info.component';
+import { GetInfoComponent } from './components/get-info/get-info.component';
+import { GetInfoServiceService } from './services/get-info-service.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -12,7 +14,8 @@ import { GetInfoComponent } from './challenges/get-challenge/get-info/get-info.c
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
