@@ -19,7 +19,7 @@ export class RadiusComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  //(Math.round(val * 100) / 100).toFixed(2);
+  
   getRadius(){
     this.service.sendRadius(this.radius).subscribe(
       (result: number) => {
