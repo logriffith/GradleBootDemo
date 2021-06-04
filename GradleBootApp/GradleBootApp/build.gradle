@@ -15,10 +15,14 @@ plugins {
     
     // Apply Spring dependency management so we don't have to keep track of the version numbers
     id "io.spring.dependency-management" version "1.0.11.RELEASE"
+    
 }
 
 // Specify the Java version
 sourceCompatibility = 1.8
+
+group "com.challenge"
+//version "1.0-SNAPSHOT"
 
 repositories {
     // Use jcenter for resolving dependencies.
@@ -42,3 +46,4 @@ dependencies {
     // Spring DevTools dependency
     implementation "org.springframework.boot:spring-boot-devtools"
 }
+
