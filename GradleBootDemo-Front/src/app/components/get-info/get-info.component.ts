@@ -7,11 +7,15 @@ import { GetInfoServiceService } from 'src/app/services/get-info-service.service
   templateUrl: './get-info.component.html',
   styleUrls: ['./get-info.component.css']
 })
+
+/**
+ * The Get Info Component represents the option to get the current date and the name of the application.
+ */
 export class GetInfoComponent implements OnInit {
 
   appInfo: GetInfo = {
-      date: "",
-      appName: ""
+    date: "",
+    appName: ""
   };
 
   constructor(private service: GetInfoServiceService) { }
