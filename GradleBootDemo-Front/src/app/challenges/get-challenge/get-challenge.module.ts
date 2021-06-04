@@ -5,7 +5,10 @@ import { GetInfoComponent } from './get-info/get-info.component';
 
 
 @NgModule({
-  declarations: [GetInfoComponent],
+  declarations: [
+    GetInfoComponent,
+    GetInfoComponent
+  ],
   imports: [
     CommonModule
   ]

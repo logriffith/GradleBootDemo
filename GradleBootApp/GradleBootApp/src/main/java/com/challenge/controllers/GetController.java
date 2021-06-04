@@ -21,13 +21,10 @@ public class GetController {
 	Environment environment;
 	
 	@GetMapping(value = "/info")
-	public ResponseEntity<List<String>> getAppInfo(){
+	public ResponseEntity<String> getAppInfo(){
 		LocalDate currentDate = LocalDate.now();
-		List<String> info = new ArrayList<>();
-		info.add(currentDate.toString());
-		info.add("appName");
 		String appName = environment.getProperty("spring.application.name");
-		return ResponseEntity.ok(info);
+		return ResponseEntity.ok("Today is "+ currentDate.toString() + " and the name of the application in the application.properties is " + appName);
 	}
 
 }
