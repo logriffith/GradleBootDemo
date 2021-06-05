@@ -58,6 +58,8 @@ dependencies {
     // Spring MCV dependency
     implementation "org.springframework.boot:spring-boot-starter-web"
     
+    implementation(project(":GradleBootDemo-Front"))
+    
     // Spring DevTools dependency
     implementation "org.springframework.boot:spring-boot-devtools"
 }
