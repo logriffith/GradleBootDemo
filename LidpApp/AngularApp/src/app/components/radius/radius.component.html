@@ -1,4 +1,6 @@
-<h2>Post Challenge: Calculate the Circumference of a Circle</h2>
-<input type="number" [(ngModel)]="radius" placeholder="Enter Radius">
-<button (click)="getRadius()">Calculate</button>
-<p *ngIf="circumference">Circumference: {{circumference}}</p>
+<h2 style="font-weight: bold;">Post Challenge: Calculate the Circumference of a Circle</h2>
+<input type="number" [(ngModel)]="radius" placeholder="ENTER RADIUS">
+<button mat-button color="accent" (click)="getRadius()">Calculate</button>
+<br>
+<br>
+<h3 *ngIf="circumference">Circumference: {{circumference}}</h3>

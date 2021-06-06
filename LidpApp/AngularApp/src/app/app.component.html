@@ -1,6 +1,18 @@
-<app-get></app-get>
-<br>
+<!-- <br>
 <br>
 <app-hello-world></app-hello-world>
-<Radius></Radius>
+<Radius></Radius> -->
+<mat-grid-list cols="1" rowHeight="20vh">
+    <mat-grid-tile style="background-color: rgb(21, 21, 161)">
+        <app-get></app-get>
+    </mat-grid-tile>
+</mat-grid-list>
+<mat-grid-list cols="2" rowHeight="20vh">
+    <mat-grid-tile>
+        <app-hello-world></app-hello-world>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <Radius></Radius>
+    </mat-grid-tile>
+</mat-grid-list>
 <router-outlet></router-outlet>
