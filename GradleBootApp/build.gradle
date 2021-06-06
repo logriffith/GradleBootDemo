@@ -10,5 +10,5 @@ plugins{
 }
 
  allprojects{
- 	group = "cs.io"
+ 	group = "com.challenge"
  }
