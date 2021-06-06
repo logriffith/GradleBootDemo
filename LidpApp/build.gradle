@@ -1,0 +1,4 @@
+allprojects{
+    group = 'com.challenge' 
+    version = '0.0.1-SNAPSHOT'
+}
