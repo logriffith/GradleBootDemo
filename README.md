@@ -40,9 +40,13 @@ This project that was assigned by LIDP Consulting Services, Inc as challenge to 
 * Clone the repository
 * Set the JRE in your IDE
 * Set Gradle in your IDE
-* Build app using ./gradlew build command from the CLI
+
+**Execution Using the CLI**
+* Build app by running the ./gradlew build command from inside the LidpApp directory.
     * ./gradlew clean build if appropriate
-* Enter java -jar LidpApp/build/libs/LidpApp-0.0.1-SNAPSHOT.jar
+* Then enter java -jar BootApp/build/libs/BootApp-0.0.1-SNAPSHOT.jar to start the Tomcat server.
+* Lastly, type localhost:80 into a web browser 
+* Enter Ctrl + C to stop the server
 
 ## Contributor
 * [Lew Griffith](https://github.com/logriffith)
