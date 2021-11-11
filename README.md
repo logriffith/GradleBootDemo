@@ -1,7 +1,9 @@
 # GradleBootDemo
 
 ## Overview
-This project that was assigned by LIDP Consulting Services, Inc as challenge to test my skill. The task was to build an app using Gradle. The app was to run on a Spring Boot server. The Angular front end was to be hosted on this server. After the app was built using Gradle, the jar file could be launched from the CLI. There were three required and three optional challenges in the original assignment. 
+This project that was assigned by LIDP Consulting Services, Inc as challenge after an interview. The task was to build a Spring Boot app using Gradle. The app was to run on a Spring Boot server. The Angular front end was to be hosted on this server. After the app was built using Gradle, the jar file could be launched from the CLI. There were three required and three optional challenges in the original assignment. 
+### Design
+The LidpApp directory serves as a root Gradle project, with Spring Boot and Angular projects inside of it. By building LidpApp, the nested projects would also be built. The Angular UI would then be stored as static content in the Spring Boot project. 
 ## Challenges
 ### Required
 * It must be a Gradle project
@@ -32,16 +34,17 @@ This project that was assigned by LIDP Consulting Services, Inc as challenge to 
 * Postman
 
 ## Getting Started
-**Installation Help:**
+
+### Installation Help
 * [Helpful Installation Guide](https://github.com/201130-JavaFS/Environment-Installation-Guide)
 * [Another Helpful Guide](https://github.com/vinayingalahalli/roc_revature_201910/tree/master/installation%20guide)
 
-**Setup:**
+### Setup
 * Clone the repository
 * Set the JRE in your IDE
 * Set Gradle in your IDE
 
-**Execution Using the CLI**
+**Execution Using the CLI:**
 * Build app by running the ./gradlew build command from inside the LidpApp directory.
     * ./gradlew clean build if appropriate
 * Then enter java -jar BootApp/build/libs/BootApp-0.0.1-SNAPSHOT.jar to start the Tomcat server.
