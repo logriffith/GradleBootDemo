@@ -28,19 +28,19 @@ public class ChallengeControllerImpl implements ChallengeApiController {
 	Environment environment;
 	
 	@Autowired
-	RestChallengeService challengeService;
+	RestChallengeService restChallengeService;
 	
 	@Override
 	@RequestMapping(method = RequestMethod.GET, value = GET_DATE_AND_APP_NAME, produces = {"application/json"})
 	public ResponseEntity<GetInfo> getAppInfo(){
-		GetInfo info = challengeService.getAppName();
+		GetInfo info = restChallengeService.getAppName();
 		return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(info);
 	}
 	
 	@Override
 	@RequestMapping(method = RequestMethod.POST, value = CALCULATE_CIRCUMFERENCE, consumes = {"application/json"}, produces = {"application/json"})
 	public ResponseEntity<Double> calculateCircumference(@RequestBody Double radius){
-		Double circumference = challengeService.calculateCircumference(radius);
+		Double circumference = restChallengeService.calculateCircumference(radius);
 		return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(circumference);
 	}
 	
