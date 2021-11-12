@@ -9,9 +9,10 @@ import { HelloWorldComponent } from './components/hello-world/hello-world.compon
 import { RadiusComponent } from './components/radius/radius.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -20,18 +21,19 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     HelloWorldComponent,
     RadiusComponent,
     HomepageComponent,
-    NavBarComponent
+    NavBarComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    BrowserAnimationsModule
-  ],
-  providers: [
+    BrowserAnimationsModule,
+    MatToolbarModule,
     MatButtonModule
   ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
