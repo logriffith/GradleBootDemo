@@ -8,12 +8,12 @@ import com.challenge.models.User;
 @Service
 public interface DatabaseChallengeService {
 	
-	boolean chooseFavoriteColor(User user, String color);
+	boolean chooseFavoriteColor(String firstName, String lastName, String color);
 	
-	Color getFavoriteColor(User user);
+	String getFavoriteColor(String firstName, String lastName);
 	
-	boolean updateFavoriteColor(User user, String color);
+	boolean updateFavoriteColor(String firstName, String lastName, String color);
 	
-	boolean deleteFavoriteColor(User user);
+	boolean deleteFavoriteColor(String firstName, String lastName);
 
 }

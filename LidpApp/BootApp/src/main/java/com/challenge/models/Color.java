@@ -31,4 +31,9 @@ public class Color {
 	
 	private String colorName;
 
+	public Color(String colorName) {
+		super();
+		this.colorName = colorName;
+	}
+
 }

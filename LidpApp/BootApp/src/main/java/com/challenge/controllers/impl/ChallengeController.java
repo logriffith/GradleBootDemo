@@ -31,17 +31,16 @@ public class ChallengeController implements IChallengeController {
 	
 	private static final String GET_DATE_AND_APP_NAME = "/challenge/info";
 	private static final String CALCULATE_CIRCUMFERENCE = "/challenge/circumference";
-	private static final String CHOOSE_FAVORITE_COLOR = "/challenge/database/choose";
-	private static final String GET_FAVORITE_COLOR_FOR_USER = "/challenge/database/get-color";
-
+	private static final String CHOOSE_FAVORITE_COLOR = "/challenge/database/color/choose";
+	private static final String GET_FAVORITE_COLOR_FOR_USER = "/challenge/database/color/get";
+	private static final String UPDATE_FAVORITE_COLOR = "/challenge/database/color/update";
+	private static final String DELETE_FAVORITE_COLOR = "/challenge/database/color/delete";
+	
 	@Autowired
 	Environment environment;
 	
 	@Autowired
 	RestChallengeService restChallengeService;
-	
-	@Autowired
-	UserDao userDao;
 	
 	@Autowired
 	DatabaseChallengeService databaseService;
@@ -66,9 +65,7 @@ public class ChallengeController implements IChallengeController {
 		final String firstName = request.getFirstName();
 		final String lastName = request.getLastName();
 		final String color = request.getColor();
-		
-		final User user = userDao.findUserByFirstNameAndLastName(firstName, lastName);
-		final boolean hasFavorite = databaseService.chooseFavoriteColor(user, color);
+		final boolean hasFavorite = databaseService.chooseFavoriteColor(firstName, lastName, color);
 		
 		if(hasFavorite) {
 			return ResponseEntity.status(HttpStatus.CREATED).contentType(MediaType.APPLICATION_JSON).build();
@@ -79,12 +76,11 @@ public class ChallengeController implements IChallengeController {
 
 	@Override
 	@RequestMapping(method = RequestMethod.POST, value = GET_FAVORITE_COLOR_FOR_USER, consumes = {"application/json"}, produces = {"application/json"})
-	public ResponseEntity<String> getFavoriteColor(UserRequest request) {
+	public ResponseEntity<String> getFavoriteColor(@RequestBody UserRequest request) {
 		final String firstName = request.getFirstName();
 		final String lastName = request.getLastName();
-		final User user = userDao.findUserByFirstNameAndLastName(firstName, lastName);
 		
-		final String favoriteColor = databaseService.getFavoriteColor(user).getColorName();
+		final String favoriteColor = databaseService.getFavoriteColor(firstName, lastName);
 		
 		if(Objects.nonNull(favoriteColor)) {
 			return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(favoriteColor);
@@ -94,15 +90,34 @@ public class ChallengeController implements IChallengeController {
 	}
 
 	@Override
-	public ResponseEntity<Boolean> updateFavoriteColor(UserFavoriteColorRequest request) {
-		// TODO Auto-generated method stub
-		return null;
+	@RequestMapping(method = RequestMethod.PUT, value = UPDATE_FAVORITE_COLOR, consumes = {"application/json"}, produces = {"application/json"})
+	public ResponseEntity<Boolean> updateFavoriteColor(@RequestBody UserFavoriteColorRequest request) {
+		final String firstName = request.getFirstName();
+		final String lastName = request.getLastName();
+		final String color = request.getColor();
+		final boolean colorUpdated = databaseService.updateFavoriteColor(firstName, lastName, color);
+		
+		if(colorUpdated) {
+			return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).build();
+		}else {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).contentType(MediaType.APPLICATION_JSON).build();
+		}	
 	}
 
 	@Override
-	public ResponseEntity<Boolean> deleteFavoriteColor(UserRequest request) {
-		// TODO Auto-generated method stub
-		return null;
+	@RequestMapping(method = RequestMethod.POST, value = DELETE_FAVORITE_COLOR, consumes = {"application/json"}, produces = {"application/json"})
+	public ResponseEntity<Boolean> deleteFavoriteColor(@RequestBody UserRequest request) {
+		final String firstName = request.getFirstName();
+		final String lastName = request.getLastName();
+		
+		final boolean colorDeleted = databaseService.deleteFavoriteColor(firstName, lastName);
+		
+		if(colorDeleted) {
+			return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).build();
+		}else {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).contentType(MediaType.APPLICATION_JSON).build();
+		}
+		
 	}
 
 }

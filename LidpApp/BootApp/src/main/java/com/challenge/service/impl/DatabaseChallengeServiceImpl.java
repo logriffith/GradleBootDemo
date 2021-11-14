@@ -22,24 +22,12 @@ public class DatabaseChallengeServiceImpl implements DatabaseChallengeService {
 	UserDao userDao;
 
 	@Override
-	public boolean chooseFavoriteColor(User user, String color) {
-		final Color favoriteColor = new Color(user.getFavoriteColor().getColorId(), color);
-		final Color colorEntity = colorDao.save(favoriteColor);
-		return Objects.nonNull(colorEntity);
-	}
-
-	@Override
-	public Color getFavoriteColor(User user) {
-		final Optional<Color> favoriteColor = colorDao.findById(user.getFavoriteColor().getColorId());
-		return favoriteColor.isPresent() ? favoriteColor.get() : null;
-	}
-
-	@Override
-	public boolean updateFavoriteColor(User user, String color) {
-		final Optional<Color> favoriteColor = colorDao.findById(user.getFavoriteColor().getColorId());
+	public boolean chooseFavoriteColor(String firstName, String lastName, String color) {
+		final User user = userDao.findUserByFirstNameAndLastName(firstName, lastName);
 		
-		if(favoriteColor.isPresent()) {
-			favoriteColor.get().setColorName(color);
+		if(Objects.nonNull(user) && Objects.isNull(user.getFavoriteColor())) {
+			user.setFavoriteColor(new Color(color));
+			userDao.save(user);
 			return true;
 		}
 		
@@ -47,16 +35,40 @@ public class DatabaseChallengeServiceImpl implements DatabaseChallengeService {
 	}
 
 	@Override
-	public boolean deleteFavoriteColor(User user) {
-		final Optional<Color> favoriteColor = colorDao.findById(user.getFavoriteColor().getColorId());
+	public String getFavoriteColor(String firstName, String lastName) {
+		final User user = userDao.findUserByFirstNameAndLastName(firstName, lastName);
+		final Color color = Objects.nonNull(user) ? user.getFavoriteColor() : null;
+		final Optional<Color> favoriteColor = Objects.nonNull(color) ? colorDao.findById(user.getFavoriteColor().getColorId()) : Optional.empty();
+		return favoriteColor.isPresent() ? favoriteColor.get().getColorName() : null;
+	}
+
+	@Override
+	public boolean updateFavoriteColor(String firstName, String lastName, String color) {
+		final User user = userDao.findUserByFirstNameAndLastName(firstName, lastName);
 		
-		if(favoriteColor.isPresent()) {
-			user.setFavoriteColor(null);
-			colorDao.delete(favoriteColor.get());
+		if(Objects.nonNull(user)) {
+			user.setFavoriteColor(new Color(color));
+			userDao.save(user);
 			return true;
 		}
 		
 		return false;
+	}
+
+	@Override
+	public boolean deleteFavoriteColor(String firstName, String lastName) {
+		final User user = userDao.findUserByFirstNameAndLastName(firstName, lastName);
+		
+		if(Objects.isNull(user)) {
+			return false;
+		}
+		
+		final Color color = user.getFavoriteColor();
+		colorDao.delete(color);
+		user.setFavoriteColor(null);
+		userDao.save(user);
+		
+		return true;
 	}
 
 }
