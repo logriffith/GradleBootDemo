@@ -23,9 +23,11 @@ The LidpApp directory serves as a root Gradle project, with Spring Boot and Angu
 
 ## Technologies Used
 * Java 8
+* AWS
 * Git
 * Gradle
 * Spring Boot
+* Spring Data
 * Angular 11
 * DBeaver
 * PostgreSQL
@@ -43,6 +45,8 @@ The LidpApp directory serves as a root Gradle project, with Spring Boot and Angu
 * Clone the repository
 * Set the JRE in your IDE
 * Set Gradle in your IDE
+* Create an AWS RDS
+    * Make sure that your IP address is in your security group.
 
 **Execution Using the CLI:**
 * Build app by running the ./gradlew build command from inside the LidpApp directory.
