@@ -36,7 +36,7 @@ public class User {
 	
 	private String lastName;
 	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "colorId")
 	private Color favoriteColor;
 	

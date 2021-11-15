@@ -3,9 +3,12 @@
  */
 package com.challenge.controllers.api;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 
 import com.challenge.models.GetInfo;
+import com.challenge.models.User;
 import com.challenge.models.UserFavoriteColorRequest;
 import com.challenge.models.UserRequest;
 
@@ -35,5 +38,7 @@ public interface IChallengeController {
 	ResponseEntity<Boolean> updateFavoriteColor(UserFavoriteColorRequest request);
 	
 	ResponseEntity<Boolean> deleteFavoriteColor(UserRequest request);
+	
+	ResponseEntity<List<User>> findAllUsers();
 	
 }

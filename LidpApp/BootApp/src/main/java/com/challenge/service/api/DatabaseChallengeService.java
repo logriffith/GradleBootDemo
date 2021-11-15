@@ -1,8 +1,9 @@
 package com.challenge.service.api;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
-import com.challenge.models.Color;
 import com.challenge.models.User;
 
 @Service
@@ -15,5 +16,7 @@ public interface DatabaseChallengeService {
 	boolean updateFavoriteColor(String firstName, String lastName, String color);
 	
 	boolean deleteFavoriteColor(String firstName, String lastName);
+	
+	List<User> findAllUsers();
 
 }
