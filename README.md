@@ -13,7 +13,7 @@ The LidpApp directory serves as a root Gradle project, with Spring Boot and Angu
 ### Optional
 * In the front end, prompt the user to enter their name. The page should change dynamically as the user inputs their name to display "Hello, Inputted Name"
 * Create a RESTful web service that will get the name of the application and the current date. The front end should call the service when the page loads and display the information on the page
-* Create a RESTful web service to calculate the circumference of a circle for a given radius, provided by the user. The user can input the radius in the front end, the radius would be sent to the back end, and the circumference would be sent back to the front end.
+* Create a RESTful web service to calculate the circumference of a circle for a given radius provided by a user. A user can input the radius in the UI, the radius would then be sent to the back end, and the circumference would be displayed to the user.
 * Include in the front end using Angular Material:
     * A button that pops up a snackbar with some kind of message
     * A grid of 3 or more cards that display any type of content
@@ -29,31 +29,30 @@ The LidpApp directory serves as a root Gradle project, with Spring Boot and Angu
 * Spring Boot
 * Spring Data
 * Angular 11
-* DBeaver
+* Angular Material
 * PostgreSQL
-* Visual Studio Code
-* Spring Tool Suite 4
-* Postman
 
 ## Getting Started
 
 ### Installation Help
 * [Helpful Installation Guide](https://github.com/201130-JavaFS/Environment-Installation-Guide)
 * [Another Helpful Guide](https://github.com/vinayingalahalli/roc_revature_201910/tree/master/installation%20guide)
+* [Gradle Installation](https://gradle.org/install/)
 
 ### Setup
 * Clone the repository
 * Set the JRE in your IDE
 * Set Gradle in your IDE
-* Create an AWS RDS
-    * Make sure that your IP address is in your security group.
+* Create a relation database
+    * If using an AWS RDS, make sure that your IP address is in your security group
+* Execute the sql/rebuild_DB.sql file
 
 **Execution Using the CLI:**
-* Build app by running the ./gradlew build command from inside the LidpApp directory.
-    * ./gradlew clean build if appropriate
-* Then enter java -jar BootApp/build/libs/BootApp-0.0.1-SNAPSHOT.jar to start the Tomcat server.
+* Build app by running the `./gradlew build` command from inside the LidpApp directory.
+    * `./gradlew clean build` if appropriate
+* Then enter `java -jar BootApp/build/libs/BootApp-0.0.1-SNAPSHOT.jar` to start the Tomcat server.
 * Lastly, type localhost:80 into a web browser 
-* Enter Ctrl + C to stop the server
+* Enter Ctrl + C in the CLI to stop the server
 
 ## Contributor
 * [Lew Griffith](https://github.com/logriffith)

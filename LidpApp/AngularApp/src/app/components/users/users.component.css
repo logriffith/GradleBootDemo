@@ -1,0 +1,14 @@
+table{
+    width: 400px;
+}
+
+th, td{
+    text-align: center;
+    vertical-align: middle;
+}
+
+th.mat-header-cell {
+    text-align: center !important;
+    font-weight: bolder;
+    font-size: small;
+  }

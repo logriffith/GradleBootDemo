@@ -13,6 +13,11 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { WelcomeComponent } from './components/welcome/welcome.component';
+import { DatabaseComponent } from './components/database/database.component';
+import { UsersComponent } from './components/users/users.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +27,9 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
     RadiusComponent,
     HomepageComponent,
     NavBarComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    DatabaseComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +38,9 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
     FormsModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -23,16 +23,21 @@ public class DatabaseChallengeServiceImpl implements DatabaseChallengeService {
 	UserDao userDao;
 
 	@Override
-	public boolean chooseFavoriteColor(String firstName, String lastName, String color) {
+	public boolean chooseFavoriteColor(String firstName, String lastName, String aColor) {
 		
-		final User user = userDao.findUserByFirstNameAndLastName(firstName, lastName);
+		User user = userDao.findUserByFirstNameAndLastName(firstName, lastName);
 		
-		if(Objects.nonNull(user) && Objects.isNull(user.getFavoriteColor())) {
+		if(Objects.isNull(user)) {
 			
-			Color favoriteColor = colorDao.findByColorName(color);
+			user = new User(firstName, lastName, null);
+		}
+		
+		if(Objects.isNull(user.getFavoriteColor())) {
+			
+			Color favoriteColor = colorDao.findByColorName(aColor);
 			
 			if(Objects.isNull(favoriteColor)) {
-				favoriteColor = new Color(color);
+				favoriteColor = new Color(aColor);
 			}
 			
 			user.setFavoriteColor(favoriteColor);

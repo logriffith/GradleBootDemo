@@ -39,5 +39,12 @@ public class User {
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "colorId")
 	private Color favoriteColor;
-	
+
+	public User(String firstName, String lastName, Color favoriteColor) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.favoriteColor = favoriteColor;
+	}
+
 }

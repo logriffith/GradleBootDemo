@@ -33,6 +33,6 @@ INSERT INTO public.users
 VALUES('Jane', 'Smith', NULL);
 INSERT INTO public.users
 (first_name, last_name, color_id)
-VALUES('Bobby', 'Smith', 3);
+VALUES('Bobby', 'Smith', NULL);
 
 ALTER TABLE public.users ADD CONSTRAINT user_color_fkey FOREIGN KEY (color_id) REFERENCES colors(color_id);

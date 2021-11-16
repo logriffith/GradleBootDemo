@@ -1,0 +1,47 @@
+<!-- <table>
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Favorite Color</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{ user.favoriteColor? user.favoriteColor.colorName :'unknown'}}</td>
+        </tr>
+    </tbody>
+</table> -->
+<table mat-table [dataSource]=users class="mat-elevation-z8">
+
+      <!-- First Name Column -->
+    <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef> First Name </th>
+        <td mat-cell *matCellDef="let user"> {{user.firstName}} </td>
+      </ng-container>
+    
+      <!-- Last Name Column -->
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef> Last Name </th>
+        <td mat-cell *matCellDef="let user"> {{user.lastName}} </td>
+      </ng-container>
+    
+      <!-- Color Column -->
+      <ng-container matColumnDef="color">
+        <th mat-header-cell *matHeaderCellDef> Color </th>
+        <td mat-cell *matCellDef="let user"> {{user.favoriteColor? user.favoriteColor.colorName :'unknown'}} </td>
+      </ng-container>
+    
+      <!-- Populate with Headers -->
+      <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+
+      <!-- Populate with Users -->
+      <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+</table>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons 
+                 aria-label="Select page of users">
+  </mat-paginator>
+<button mat-raised-button color="primary" (click)="displayUsers()">Find Users</button>

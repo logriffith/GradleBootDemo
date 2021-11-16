@@ -5,12 +5,14 @@ import { HelloWorldComponent } from './components/hello-world/hello-world.compon
 import { RadiusComponent } from './components/radius/radius.component';
 import { GetComponent } from './components/get/get.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
+import { DatabaseComponent } from './components/database/database.component';
 
 const routes: Routes = [
   {path: "welcome", component: WelcomeComponent},
   {path: "", redirectTo: "welcome", pathMatch: "full"},
   {path: "hello-world", component: HelloWorldComponent},
-  {path: "circumference", component: RadiusComponent}
+  {path: "circumference", component: RadiusComponent},
+  {path: "database", component: DatabaseComponent}
 ];
 
 @NgModule({
