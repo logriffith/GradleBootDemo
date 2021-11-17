@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { HelloWorldComponent } from './components/hello-world/hello-world.component';
 import { RadiusComponent } from './components/radius/radius.component';
-import { GetComponent } from './components/get/get.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { DatabaseComponent } from './components/database/database.component';
 

@@ -13,6 +13,7 @@ export class UsersComponent implements OnInit {
 
     users: User[];
     columnsToDisplay: string[] = ['firstName', 'lastName', 'color'];
+    dataSource: any;
     
     @ViewChild('paginator') paginator!: MatPaginator;
 
@@ -24,11 +25,16 @@ export class UsersComponent implements OnInit {
     this.displayUsers();
   }
 
+  ngAfterViewInit(){
+  }
+
   displayUsers(){
     this.service.getUsers().subscribe(
       (response: User[]) => {
+        console.log(response);
         this.users = response;
       },
+
       (err) => {
         console.log("Error status code from the back end: ");
         console.log(err);

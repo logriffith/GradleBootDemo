@@ -17,6 +17,12 @@ import { DatabaseComponent } from './components/database/database.component';
 import { UsersComponent } from './components/users/users.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { ChooseColorComponent } from './components/choose-color/choose-color.component';
+import { GetColorComponent } from './components/get-color/get-color.component';
+import { UpdateColorComponent } from './components/update-color/update-color.component';
+import { DeleteColorComponent } from './components/delete-color/delete-color.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+//import {MatInputModule} from '@angular/material/input';
 
 
 @NgModule({
@@ -29,7 +35,11 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     NavBarComponent,
     WelcomeComponent,
     DatabaseComponent,
-    UsersComponent
+    UsersComponent,
+    ChooseColorComponent,
+    GetColorComponent,
+    UpdateColorComponent,
+    DeleteColorComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +50,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatToolbarModule,
     MatButtonModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
