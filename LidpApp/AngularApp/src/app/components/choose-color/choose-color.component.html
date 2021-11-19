@@ -1,5 +1,8 @@
 <h2>What is Your Favorite Color?</h2>
 <input type="text" [(ngModel)]="firstName" placeholder="Enter First Name">
 <input type="text" [(ngModel)]="lastName" placeholder="Enter Last Name">
-<input type="text" [(ngModel)]="lastName" placeholder="Enter Color">
-<button mat-raised-button color="primary" (click)="chooseFavorite">Find Users</button>
+<br>
+<br>
+<div><input type="text" [(ngModel)]="color" placeholder="Enter Color"></div>
+<button mat-raised-button color="primary" (click)="chooseFavorite()">Find Users</button>
+<h4>{{message}}</h4>

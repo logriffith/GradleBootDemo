@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FavoriteColor } from 'src/app/models/favorite-color';
-import { User } from 'src/app/models/user';
+import { ChooseColor } from 'src/app/models/choose-color';
 import { ChooseColorService } from 'src/app/services/choose-color.service';
 
 @Component({
@@ -12,7 +11,8 @@ export class ChooseColorComponent implements OnInit {
 
   public firstName: string;
   public lastName: string;
-  public color: FavoriteColor;
+  public color: string;
+  public message: string;
 
   constructor(private service: ChooseColorService) { }
 
@@ -20,13 +20,15 @@ export class ChooseColorComponent implements OnInit {
   }
 
   chooseFavorite(){
-    let user: User = new User(0, this.firstName, this.lastName, this.color);
-    this.service.chooseFavorite(user).subscribe(
+    let newUser = new ChooseColor(this.firstName, this.lastName, this.color);
+    this.service.chooseFavorite(newUser).subscribe(
       () => {
         console.log("Favorite Color Chosen.");
+        this.message = "Thank You For Sharing!"
       },
       (err) => {
         console.log("Did not save user/color.")
+        console.log(err);
       }
     );
   }

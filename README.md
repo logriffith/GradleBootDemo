@@ -3,7 +3,7 @@
 ## Overview
 This project that was assigned by LIDP Consulting Services, Inc as challenge after an interview. The task was to build a Spring Boot app using Gradle. The app was to run on a Spring Boot server. The Angular front end was to be hosted on this server. After the app was built using Gradle, the jar file could be launched from the CLI. There were three required and three optional challenges in the original assignment. 
 ### Design
-The LidpApp directory serves as a root Gradle project, with Spring Boot and Angular projects inside of it. By building LidpApp, the nested projects would also be built. The Angular UI would then be stored as static content in the Spring Boot project. 
+The LidpApp directory serves as a root Gradle project, with Spring Boot and Angular projects inside of it. By building LidpApp, the nested projects would also be built. The Angular UI would then be stored as static content in the Spring Boot project. Click [here](https://www.youtube.com/watch?v=-P3FlYj_yHs) to watch a demo on this process.
 ## Challenges
 ### Required
 * It must be a Gradle project

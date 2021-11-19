@@ -1,18 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ChooseColor } from '../models/choose-color';
+import { Name } from '../models/name';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ChooseColorService {
+export class GetFavoriteService {
 
-  private url: string = "http://localhost:80/challenge/database/color/choose";
+  private url: string = "http://localhost:80/challenge/database/color/get";
 
   constructor(private http: HttpClient) { }
 
-  chooseFavorite(user: ChooseColor): Observable<any>{
+  getFavorite(user: Name): Observable<any>{
     return this.http.post(this.url, user) as Observable<any>;
   }
 }
