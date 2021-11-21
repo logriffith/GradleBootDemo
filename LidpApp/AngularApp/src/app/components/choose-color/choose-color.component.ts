@@ -20,7 +20,7 @@ export class ChooseColorComponent implements OnInit {
   }
 
   chooseFavorite(){
-    let newUser = new ChooseColor(this.firstName, this.lastName, this.color);
+    let newUser = new ChooseColor(this.firstName.trim(), this.lastName.trim(), this.color);
     this.service.chooseFavorite(newUser).subscribe(
       () => {
         console.log("Favorite Color Chosen.");

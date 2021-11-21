@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ChooseColor } from 'src/app/models/choose-color';
+import { UpdateFavoriteService } from 'src/app/services/update-favorite.service';
 
 @Component({
   selector: 'app-update-color',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdateColorComponent implements OnInit {
 
-  constructor() { }
+  public firstName: string;
+  public lastName: string;
+  public color: string;
+  public message: string;
+
+  constructor(private service: UpdateFavoriteService) { }
 
   ngOnInit(): void {
+  }
+
+  updateFavorite(){
+    const newFavorite = new ChooseColor(this.firstName.trim(), this.lastName.trim(), this.color);
+    this.service.updateColor(newFavorite).subscribe(
+      () => {
+        this.message = "Thank you for the update!";
+      },
+      (err) => {
+        console.log("update unsuccessful");
+        console.log(err)
+      }
+    );
   }
 
 }

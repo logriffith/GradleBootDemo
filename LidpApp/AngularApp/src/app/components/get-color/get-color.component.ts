@@ -11,7 +11,7 @@ export class GetColorComponent implements OnInit {
 
   public firstName: string;
   public lastName: string;
-  public favoriteColor: any;
+  public favoriteColor: string;
 
   constructor(private service: GetFavoriteService) { }
 
@@ -19,10 +19,15 @@ export class GetColorComponent implements OnInit {
   }
 
   getFavorite(){
-    let nameOfUser = new Name(this.firstName, this.lastName);
+    let nameOfUser = new Name(this.firstName.trim(), this.lastName.trim());
     this.service.getFavorite(nameOfUser).subscribe(
       (response: any) => {
-        this.favoriteColor = response;
+        const color = response.body;
+        if(color == null){
+          this.favoriteColor = "unknown";
+        }else{ 
+          this.favoriteColor = response.body;
+        }
       },
       (err) => {
         console.log("No favorite Color Found For User");
