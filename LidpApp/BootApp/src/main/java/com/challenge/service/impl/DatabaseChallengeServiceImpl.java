@@ -34,10 +34,10 @@ public class DatabaseChallengeServiceImpl implements DatabaseChallengeService {
 		
 		if(Objects.isNull(user.getFavoriteColor())) {
 			
-			Color favoriteColor = colorDao.findByColorName(aColor);
+			Color favoriteColor = colorDao.findByColorName(aColor.toLowerCase());
 			
 			if(Objects.isNull(favoriteColor)) {
-				favoriteColor = new Color(aColor);
+				favoriteColor = new Color(aColor.toLowerCase());
 			}
 			
 			user.setFavoriteColor(favoriteColor);

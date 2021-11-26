@@ -13,7 +13,7 @@ export class UpdateFavoriteService {
   constructor(private httpClient: HttpClient) { }
 
   updateColor(color: ChooseColor): Observable<any>{
-    return this.httpClient.post(this.url, color) as Observable<any>;
+    return this.httpClient.put(this.url, color) as Observable<any>;
   }
 
 }

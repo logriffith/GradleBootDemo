@@ -44,8 +44,6 @@ public class ChallengeController implements IChallengeController {
 	
 	private static final String GET_ALL_USERS = "/challenge/database/users";
 	
-	@Autowired
-	Environment environment;
 	
 	@Autowired
 	RestChallengeService restChallengeService;
@@ -118,7 +116,7 @@ public class ChallengeController implements IChallengeController {
 	}
 
 	@Override
-	@RequestMapping(method = RequestMethod.POST, value = DELETE_FAVORITE_COLOR, consumes = {"application/json"}, produces = {"application/json"})
+	@RequestMapping(method = RequestMethod.DELETE, value = DELETE_FAVORITE_COLOR, consumes = {"application/json"}, produces = {"application/json"})
 	public ResponseEntity<Boolean> deleteFavoriteColor(@RequestBody UserRequest request) {
 		
 		final String firstName = request.getFirstName();

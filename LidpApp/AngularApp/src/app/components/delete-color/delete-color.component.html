@@ -1,1 +1,7 @@
 <h2>Delete Your Favorite Color</h2>
+<input type="text" [(ngModel)]="firstName" placeholder="Enter First Name">
+<input type="text" [(ngModel)]="lastName" placeholder="Enter Last Name">
+<br>
+<br>
+<button mat-raised-button color="primary" (click)="deleteFavorite()">Delete Favorite</button>
+<h4>{{message}}</h4>
