@@ -93,8 +93,7 @@ public class DatabaseChallengeServiceImpl implements DatabaseChallengeService {
 		if(Objects.nonNull(color)) {
 	
 			user.setFavoriteColor(null);
-			userDao.save(user);
-			colorDao.delete(color);
+			userDao.delete(user);
 			return true;
 		}
 		

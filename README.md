@@ -2,7 +2,7 @@
 
 ## Overview
 This project that was assigned by LIDP Consulting Services, Inc as challenge after an interview. The task was to build a Spring Boot app using Gradle. The app was to run on a Spring Boot server. The Angular front end was to be hosted on this server. After the app was built using Gradle, the jar file could be launched from the CLI. There were three required and three optional challenges in the original assignment. 
-### Design
+
 The LidpApp directory serves as a root Gradle project, with Spring Boot and Angular projects inside of it. By building LidpApp, the nested projects would also be built. The Angular UI would then be stored as static content in the Spring Boot project. Click [here](https://www.youtube.com/watch?v=-P3FlYj_yHs) to watch a demo on this process.
 ## Challenges
 ### Required
@@ -39,6 +39,7 @@ The LidpApp directory serves as a root Gradle project, with Spring Boot and Angu
 * [Helpful Installation Guide](https://github.com/201130-JavaFS/Environment-Installation-Guide)
 * [Another Helpful Guide](https://github.com/vinayingalahalli/roc_revature_201910/tree/master/installation%20guide)
 * [Gradle Installation](https://gradle.org/install/)
+* [Docker Installation](https://docs.docker.com/desktop/windows/install/)
 
 ### Setup
 * Clone the repository
@@ -48,7 +49,7 @@ The LidpApp directory serves as a root Gradle project, with Spring Boot and Angu
     * If using an AWS RDS, make sure that your IP address is in your security group
 * Execute the sql/rebuild_DB.sql file
 
-**Execution Using the CLI:**
+**Execution From the Git Bash:**
 * Build app by running the `./gradlew build` command from inside the LidpApp directory.
     * `./gradlew clean build` if appropriate
 * Then enter `java -jar BootApp/build/libs/BootApp-0.0.1-SNAPSHOT.jar` to start the Tomcat server.
