@@ -1,3 +1,15 @@
+plugins{
+	 id 'com.palantir.docker' version '0.31.0' //see https://github.com/palantir/gradle-docker
+	 id 'java'
+}
+
+docker{
+	name "${project.name}"
+	dockerfile file("Dockerfile")
+	copySpec.from(jar).rename(".*", "lidp.jar")
+	buildArgs(["JAR_FILE": "lidp.jar"])
+}
+
 allprojects{
     group = 'com.challenge' 
     version = '0.0.1-SNAPSHOT'

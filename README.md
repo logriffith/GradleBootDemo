@@ -49,12 +49,14 @@ The LidpApp directory serves as a root Gradle project, with Spring Boot and Angu
     * If using an AWS RDS, make sure that your IP address is in your security group
 * Execute the sql/rebuild_DB.sql file
 
-**Execution From the Git Bash:**
+### Execution
+
+#### Execution From Git Bash
 * Build app by running the `./gradlew build` command from inside the LidpApp directory.
     * `./gradlew clean build` if appropriate
 * Then enter `java -jar BootApp/build/libs/BootApp-0.0.1-SNAPSHOT.jar` to start the Tomcat server.
 * Lastly, type `localhost:80` into a web browser 
-* Enter `Ctrl + C` in the CLI to stop the server
+* Enter `Ctrl + C` in the bash window to stop the server
 
 ## Contributor
 * [Lew Griffith](https://github.com/logriffith)
