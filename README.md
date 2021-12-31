@@ -11,7 +11,7 @@ The LidpApp directory serves as a root Gradle project, with Spring Boot and Angu
     * The app should run on port 80
 * Create a homepage using Angular and Angular Material
 ### Optional
-* In the front end, prompt the user to enter their name. The page should change dynamically as the user inputs their name to display "Hello, Inputted Name"
+* In the front end, prompt the user to enter their name. The page should change dynamically as the user inputs their name to display "Hello, inputtedName"
 * Create a RESTful web service that will get the name of the application and the current date. The front end should call the service when the page loads and display the information on the page
 * Create a RESTful web service to calculate the circumference of a circle for a given radius provided by a user. A user can input the radius in the UI, the radius would then be sent to the back end, and the circumference would be displayed to the user.
 * Include in the front end using Angular Material:
@@ -32,6 +32,7 @@ The LidpApp directory serves as a root Gradle project, with Spring Boot and Angu
 * Angular Material
 * NodeJS
 * PostgreSQL
+* Docker
 
 ## Getting Started
 
@@ -49,9 +50,7 @@ The LidpApp directory serves as a root Gradle project, with Spring Boot and Angu
     * If using an AWS RDS, make sure that your IP address is in your security group
 * Execute the sql/rebuild_DB.sql file
 
-### Execution
-
-#### Execution From Git Bash
+#### Execution From Git Bash (Windows)
 * Build app by running the `./gradlew build` command from inside the LidpApp directory.
     * `./gradlew clean build` if appropriate
 * Then enter `java -jar BootApp/build/libs/BootApp-0.0.1-SNAPSHOT.jar` to start the Tomcat server.
